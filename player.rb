@@ -1,11 +1,11 @@
 class Player
-attr_accessor :hashListPlayer
+  attr_accessor :hashListPlayer
   def initialize  #método construtor
       @hashListPlayer = Hash.new # Inicializa o atributo hashListPlayer
   end
   #Monta a lista de jogadores
   def mountListPlayer(fragmentedFile)
-  if fragmentedFile.length < 3 || fragmentedFile.length < 5
+  if fragmentedFile.length < 5
   else
 	fragmentedFile.each do |frag|
 	  if frag[2] == "Kill" and frag[4] != "<world>"
@@ -36,7 +36,7 @@ a = str.scan(/\w+/i)
 my_array.each do |ar|
   a.each do |a1|
     if a != "ShutdownGame"
-	 player.mountListPlayer("#{a1}")
+	 player.mountListPlayer(a1)
 	else
      player.mountListRank(a1)
     end	 
